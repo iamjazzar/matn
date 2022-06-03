@@ -1,0 +1,21 @@
+[MASTER]
+load-plugins=pylint.extensions.bad_builtin, pylint.extensions.mccabe
+ignore=test,tests.py,README.md
+
+[FORMAT]
+max-line-length=88
+
+[DESIGN]
+max-complexity=10
+max-line-length = 88
+
+[SIMILARITIES]
+min-similarity-lines=8
+
+[MISCELLANEOUS]
+
+# List of note tags to take in consideration, separated by a comma.
+notes=FIXME,XXX
+
+[TYPECHECK]
+generated-members=REQUEST,acl_users,aq_parent,"[a-zA-Z]+_set{1,2}",save,delete
