@@ -2,13 +2,13 @@ from unittest import TestCase
 
 from ddt import data, ddt, unpack
 
-from jummal.processor import jummal_counter
+from matn.jummal import processor as jummal
 
 
 @ddt
 class TestJummalNormal(TestCase):
     def wrapper(self, text):
-        return jummal_counter(text)
+        return jummal(text)
 
     @data(
         ["أ", 1],
@@ -41,7 +41,7 @@ class TestJummalNormal(TestCase):
         ["غ", 1_000],
     )
     @unpack
-    def test_jummal_counter_single_character(self, text, expected):
+    def test_jummal_single_character(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -51,7 +51,7 @@ class TestJummalNormal(TestCase):
         ["من أنبت الغصن من صمصامة ذكر", 2_990],
     )
     @unpack
-    def test_jummal_counter_sentences(self, text, expected):
+    def test_jummal_sentences(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -62,7 +62,7 @@ class TestJummalNormal(TestCase):
         ["ظن", 950],
     )
     @unpack
-    def test_jummal_counter_words(self, text, expected):
+    def test_jummal_words(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -75,14 +75,14 @@ class TestJummalNormal(TestCase):
         ["ًرمى القضاء بعيني جؤذر أسدا", 2_299],
     )
     @unpack
-    def test_jummal_counter_hamza(self, text, expected):
+    def test_jummal_hamza(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
         ["بكى", 32],
     )
     @unpack
-    def test_jummal_counter_alef_maksora(self, text, expected):
+    def test_jummal_alef_maksora(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -90,7 +90,7 @@ class TestJummalNormal(TestCase):
         ["أبكمه", 68],
     )
     @unpack
-    def test_jummal_counter_heh_teh_marboota(self, text, expected):
+    def test_jummal_heh_teh_marboota(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -102,14 +102,14 @@ class TestJummalNormal(TestCase):
         ["بغاء", 1_003],
     )
     @unpack
-    def test_jummal_counter_tarkeeb(self, text, expected):
+    def test_jummal_tarkeeb(self, text, expected):
         assert expected == self.wrapper(text), text
 
 
 @ddt
 class TestJummalUseTarkeeb(TestCase):
     def wrapper(self, text):
-        return jummal_counter(text, use_tarkeeb=True)
+        return jummal(text, use_tarkeeb=True)
 
     @data(
         ["أ", 1],
@@ -142,7 +142,7 @@ class TestJummalUseTarkeeb(TestCase):
         ["غ", 1_000],
     )
     @unpack
-    def test_jummal_counter_single_character(self, text, expected):
+    def test_jummal_single_character(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -152,7 +152,7 @@ class TestJummalUseTarkeeb(TestCase):
         ["من أنبت الغصن من صمصامة ذكر", 31_960],
     )
     @unpack
-    def test_jummal_counter_sentences(self, text, expected):
+    def test_jummal_sentences(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -163,7 +163,7 @@ class TestJummalUseTarkeeb(TestCase):
         ["ظن", 950],
     )
     @unpack
-    def test_jummal_counter_words(self, text, expected):
+    def test_jummal_words(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -176,14 +176,14 @@ class TestJummalUseTarkeeb(TestCase):
         ["ًرمى القضاء بعيني جؤذر أسدا", 2_299],
     )
     @unpack
-    def test_jummal_counter_hamza(self, text, expected):
+    def test_jummal_hamza(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
         ["بكى", 32],
     )
     @unpack
-    def test_jummal_counter_alef_maksora(self, text, expected):
+    def test_jummal_alef_maksora(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -191,7 +191,7 @@ class TestJummalUseTarkeeb(TestCase):
         ["أبكمه", 68],
     )
     @unpack
-    def test_jummal_counter_heh_teh_marboota(self, text, expected):
+    def test_jummal_heh_teh_marboota(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -203,14 +203,14 @@ class TestJummalUseTarkeeb(TestCase):
         ["بغاء", 2_001],
     )
     @unpack
-    def test_jummal_counter_tarkeeb(self, text, expected):
+    def test_jummal_tarkeeb(self, text, expected):
         assert expected == self.wrapper(text), text
 
 
 @ddt
 class TestJummalUseHamza(TestCase):
     def wrapper(self, text):
-        return jummal_counter(text, use_hamza=True)
+        return jummal(text, use_hamza=True)
 
     @data(
         ["أ", 1],
@@ -243,7 +243,7 @@ class TestJummalUseHamza(TestCase):
         ["غ", 1_000],
     )
     @unpack
-    def test_jummal_counter_single_character(self, text, expected):
+    def test_jummal_single_character(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -253,7 +253,7 @@ class TestJummalUseHamza(TestCase):
         ["من أنبت الغصن من صمصامة ذكر", 2_990],
     )
     @unpack
-    def test_jummal_counter_sentences(self, text, expected):
+    def test_jummal_sentences(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -264,7 +264,7 @@ class TestJummalUseHamza(TestCase):
         ["ظن", 950],
     )
     @unpack
-    def test_jummal_counter_words(self, text, expected):
+    def test_jummal_words(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -277,14 +277,14 @@ class TestJummalUseHamza(TestCase):
         ["ًرمى القضاء بعيني جؤذر أسدا", 2_300],
     )
     @unpack
-    def test_jummal_counter_hamza(self, text, expected):
+    def test_jummal_hamza(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
         ["بكى", 32],
     )
     @unpack
-    def test_jummal_counter_alef_maksora(self, text, expected):
+    def test_jummal_alef_maksora(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -292,7 +292,7 @@ class TestJummalUseHamza(TestCase):
         ["أبكمه", 68],
     )
     @unpack
-    def test_jummal_counter_heh_teh_marboota(self, text, expected):
+    def test_jummal_heh_teh_marboota(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -304,14 +304,14 @@ class TestJummalUseHamza(TestCase):
         ["بغاء", 1_004],
     )
     @unpack
-    def test_jummal_counter_tarkeeb(self, text, expected):
+    def test_jummal_tarkeeb(self, text, expected):
         assert expected == self.wrapper(text), text
 
 
 @ddt
 class TestJummalTarkeebAndHamza(TestCase):
     def wrapper(self, text):
-        return jummal_counter(text, use_hamza=True, use_tarkeeb=True)
+        return jummal(text, use_hamza=True, use_tarkeeb=True)
 
     @data(
         ["أ", 1],
@@ -344,7 +344,7 @@ class TestJummalTarkeebAndHamza(TestCase):
         ["غ", 1_000],
     )
     @unpack
-    def test_jummal_counter_single_character(self, text, expected):
+    def test_jummal_single_character(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -354,7 +354,7 @@ class TestJummalTarkeebAndHamza(TestCase):
         ["من أنبت الغصن من صمصامة ذكر", 31_960],
     )
     @unpack
-    def test_jummal_counter_sentences(self, text, expected):
+    def test_jummal_sentences(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -365,7 +365,7 @@ class TestJummalTarkeebAndHamza(TestCase):
         ["ظن", 950],
     )
     @unpack
-    def test_jummal_counter_words(self, text, expected):
+    def test_jummal_words(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -378,14 +378,14 @@ class TestJummalTarkeebAndHamza(TestCase):
         ["ًرمى القضاء بعيني جؤذر أسدا", 2_300],
     )
     @unpack
-    def test_jummal_counter_hamza(self, text, expected):
+    def test_jummal_hamza(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
         ["بكى", 32],
     )
     @unpack
-    def test_jummal_counter_alef_maksora(self, text, expected):
+    def test_jummal_alef_maksora(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -393,7 +393,7 @@ class TestJummalTarkeebAndHamza(TestCase):
         ["أبكمه", 68],
     )
     @unpack
-    def test_jummal_counter_heh_teh_marboota(self, text, expected):
+    def test_jummal_heh_teh_marboota(self, text, expected):
         assert expected == self.wrapper(text), text
 
     @data(
@@ -405,5 +405,5 @@ class TestJummalTarkeebAndHamza(TestCase):
         ["بغاء", 2_002],
     )
     @unpack
-    def test_jummal_counter_tarkeeb(self, text, expected):
+    def test_jummal_tarkeeb(self, text, expected):
         assert expected == self.wrapper(text), text

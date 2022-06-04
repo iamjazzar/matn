@@ -37,7 +37,7 @@ normal_mappings = {
 }
 
 
-def jummal_counter(text: str, use_hamza: bool = False, use_tarkeeb: bool = False):
+def processor(text: str, use_hamza: bool = False, use_tarkeeb: bool = False):
     total = len(text)
     count = 0
     skip = False

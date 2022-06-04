@@ -7,13 +7,13 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
 setup(
-    name="jummal",
+    name="matn",
     version="0.1.1",
-    packages=["jummal"],
+    packages=["matn"],
     install_requires=[],
     entry_points={
         "console_scripts": [
-            "jummal = jummal.cli:main",
+            "matn = matn.cli:main",
         ],
     },
     classifiers=[
@@ -28,7 +28,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Topic :: Software Development",
     ],
-    url="https://github.com/iamjazzar/jummal",
+    url="https://github.com/iamjazzar/matn",
     license="MIT License",
     author="Ahmed Jazzar",
     author_email="me@ahmedjazzar.com",  # TODO

@@ -1,4 +1,4 @@
-# Jummal [![Tests](https://github.com/iamjazzar/jummal/actions/workflows/ci.yml/badge.svg)](https://github.com/iamjazzar/jummal/actions/workflows/ci.yml) [![PyPI version](https://badge.fury.io/py/jummal.svg)](https://badge.fury.io/py/jummal)
+# Kalam [![Tests](https://github.com/iamjazzar/matn/actions/workflows/ci.yml/badge.svg)](https://github.com/iamjazzar/matn/actions/workflows/ci.yml) [![PyPI version](https://badge.fury.io/py/matn.svg)](https://badge.fury.io/py/matn)
 
 
 
@@ -8,7 +8,7 @@
 ## Getting started
 
 ```bash
-pip install jummal
+pip install matn
 ```
 
 ## Usage
