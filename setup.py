@@ -31,8 +31,8 @@ setup(
     url="https://github.com/iamjazzar/matn",
     license="MIT License",
     author="Ahmed Jazzar",
-    author_email="me@ahmedjazzar.com",  # TODO
-    description="",  # TODO
+    author_email="me@ahmedjazzar.com",
+    description="Arabic text processor tool.",
     long_description=long_description,
     long_description_content_type="text/markdown",
 )

@@ -1,10 +1,10 @@
 # Matn | مَتن [![Tests](https://github.com/iamjazzar/matn/actions/workflows/ci.yml/badge.svg)](https://github.com/iamjazzar/matn/actions/workflows/ci.yml) [![PyPI version](https://badge.fury.io/py/matn.svg)](https://badge.fury.io/py/matn)
 
-A Python mathematical tool for simple access to Arabic letters counting systems.
+Arabic text processor tool.
 
 
 ## About
-This library is just a host for all possible [processors](#processors) required to do the counting over Arabic text.
+A shared space for Arabic text [processors](#processors).
 
 
 ## Getting started
