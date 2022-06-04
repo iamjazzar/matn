@@ -100,6 +100,7 @@ class TestJummalNormal(TestCase):
         ["مرغ", 1_240],
         ["بغي", 1_012],
         ["بغاء", 1_003],
+        ["شغل الدموع عن الديار بكاؤنا   لبكاء فاطمــة على أولادها", 2_273],
     )
     @unpack
     def test_jummal_tarkeeb(self, text, expected):
@@ -201,6 +202,7 @@ class TestJummalUseTarkeeb(TestCase):
         ["مرغ", 200_040],
         ["بغي", 2_010],
         ["بغاء", 2_001],
+        ["شغل الدموع عن الديار بكاؤنا   لبكاء فاطمــة على أولادها", 300_973],
     )
     @unpack
     def test_jummal_tarkeeb(self, text, expected):
@@ -302,6 +304,7 @@ class TestJummalUseHamza(TestCase):
         ["مرغ", 1_240],
         ["بغي", 1_012],
         ["بغاء", 1_004],
+        ["شغل الدموع عن الديار بكاؤنا   لبكاء فاطمــة على أولادها", 2_274],
     )
     @unpack
     def test_jummal_tarkeeb(self, text, expected):
@@ -403,6 +406,7 @@ class TestJummalTarkeebAndHamza(TestCase):
         ["مرغ", 200_040],
         ["بغي", 2_010],
         ["بغاء", 2_002],
+        ["شغل الدموع عن الديار بكاؤنا   لبكاء فاطمــة على أولادها", 300_974],
     )
     @unpack
     def test_jummal_tarkeeb(self, text, expected):

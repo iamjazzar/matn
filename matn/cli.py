@@ -5,7 +5,10 @@ from matn import jummal
 
 def get_args():
     parser = argparse.ArgumentParser(
-        description="A mathmatical tool for Arabic counting systems."
+        description=(
+            "A Python mathematical tool for simple access to "
+            "Arabic letters counting systems."
+        )
     )
     parser.add_argument(
         "processor",
