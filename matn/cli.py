@@ -15,6 +15,15 @@ def get_args():
         "--use-hamza", "-z", action="store_true", help="count hamza as an alef."
     )
     parser_jummal.add_argument(
+        "--normalize-hamza",
+        "-n",
+        action="store_true",
+        help=(
+            "Treat all hamza forms as a regular alef instead of the "
+            "letter it appears on. Defaults to False."
+        ),
+    )
+    parser_jummal.add_argument(
         "--use-tarkeeb",
         "-t",
         action="store_true",
@@ -35,7 +44,14 @@ def get_args():
 
 def main():
     args = get_args()
-    print(jummal(args.text, use_hamza=args.use_hamza, use_tarkeeb=args.use_tarkeeb))
+    print(
+        jummal(
+            args.text,
+            use_hamza=args.use_hamza,
+            use_tarkeeb=args.use_tarkeeb,
+            normalize_hamza=args.normalize_hamza,
+        )
+    )
 
 
 if __name__ == "__main__":
