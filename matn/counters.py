@@ -1,3 +1,4 @@
+from matn import elements as ase
 from matn.normalizers import clean_text
 
 jummal_mappings = {
@@ -39,7 +40,12 @@ jummal_mappings = {
 }
 
 
-def jummal(text: str, use_hamza: bool = False, use_tarkeeb: bool = False) -> int:
+def jummal(
+    text: str,
+    use_hamza: bool = False,
+    use_tarkeeb: bool = False,
+    normalize_hamza: bool = False,
+) -> int:
     """Get the decimal alphanumeric code of a given string.
 
     Or Abjad numerals, a decimal alphabetic numeral system/alphanumeric code,
@@ -54,6 +60,8 @@ def jummal(text: str, use_hamza: bool = False, use_tarkeeb: bool = False) -> int
             1,000,000, using the rule based on the letter "غ". The rule says: any
             character that comes before "غ" its value will be multiplied with
             1000 instead of accumalated to it. Defaults to False.
+        normalize_hamza (bool, optional): Treat all hamza forms as a regular alef
+            instead of the letter it appears on. Defaults to False.
 
     Returns:
         int: The jummal count of the given string
@@ -69,12 +77,16 @@ def jummal(text: str, use_hamza: bool = False, use_tarkeeb: bool = False) -> int
             skip = False
             continue
 
-        if not use_hamza and char == "ء":
+        if not use_hamza and char == ase.HAMZA:
             continue
 
         if use_tarkeeb and not char.isspace() and i + 1 < total and text[i + 1] == "غ":
             count += 1000 * jummal_mappings[char]
             skip = True
+            continue
+
+        if normalize_hamza and char in ase.HAMZA_LETTERS:
+            count += 1
             continue
 
         count += jummal_mappings.get(char, 0)
