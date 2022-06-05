@@ -1,0 +1,55 @@
+# One replacement
+- text: some text goes here
+  replacements: {"goes": ""}
+  expected: "some text  here"
+
+- text: some text goes here
+  replacements: {"goes": "comes"}
+  expected: "some text comes here"
+
+- text: some text goes here
+  replacements: {" ": "|"}
+  expected: "some|text|goes|here"
+
+# Multiple replacements
+- text: some text goes here
+  replacements: {"text": "", "goes": ""}
+  expected: some   here
+
+- text: some text goes here
+  replacements: {"text": "", "goes": "comes"}
+  expected: some  comes here
+
+- text: some text goes here
+  replacements: {"text": "data", "goes": ""}
+  expected: some data  here
+
+- text: some text goes here
+  replacements: {"text": "data", "goes": "come"}
+  expected: some data come here
+
+# Special characters
+- text: some (text) goes here
+  replacements: {"(": "{", ")": "}"}
+  expected: some {text} goes here
+
+- text: some (text) goes here
+  replacements: {"goes here": "<>"}
+  expected: some (text) <>
+
+- text: (. , + , * , ? , ^ , $ , ( , ) , [ , ] , { , } , | , \\)
+  replacements: {"* , ? , ^": "* , * , *"}
+  expected: (. , + , * , * , * , $ , ( , ) , [ , ] , { , } , | , \\)
+
+# Arabic replacements
+- text: نَعَمْ سَرَى طَيْفُ مَنْ أَهْوَى فَأَرَّقَنِي
+  replacements: {" فَأَرَّقَنِي": ""}
+  expected: نَعَمْ سَرَى طَيْفُ مَنْ أَهْوَى
+
+- text: نَعَمْ سَرَى طَيْفُ مَنْ أَهْوَى فَأَرَّقَنِي
+  replacements: {"فَأَرَّقَنِي": "فحيرني"}
+  expected: نَعَمْ سَرَى طَيْفُ مَنْ أَهْوَى فحيرني
+
+- text: نَعَمْ سَرَى طَيْفُ
+  replacements: {"نَعَمْ سَرَى طَيْفُ": "وَالحُبُّ يَعْتَرِضُ"}
+  expected: وَالحُبُّ يَعْتَرِضُ
