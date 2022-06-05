@@ -6,13 +6,15 @@
     <img style="max-width: 100%;" alt="Tests" src="https://github.com/iamjazzar/matn/actions/workflows/ci.yml/badge.svg" />
   </a>
   <a href="https://badge.fury.io/py/matn">
-    <img style="max-width: 100%;" alt="Tests" src="https://badge.fury.io/py/matn.svg" />
+    <img style="max-width: 100%;" alt="Tests" src="https://badge.fury.io/py/matn.svg" />    
   </a>
 </h1>
 <p align="center">
   <a href="https://www.ahmedjazzar.com/">
-<img width="350" alt="Screen Shot 2022-06-04 at 4 45 04 PM" src="https://user-images.githubusercontent.com/11036472/172029190-94d06808-9b70-487c-a83a-52549e43d5e7.png">
-
+  <picture>
+      <source srcset="https://user-images.githubusercontent.com/11036472/172036047-b60ad299-e30f-4a16-85f7-645d95edd1b8.png" media="(prefers-color-scheme: dark)" />
+      <img width="400" id="screenshot" src="https://user-images.githubusercontent.com/11036472/172036055-b0a9c55c-3986-411d-955f-790130c49c27.png" />
+    </picture>
   </a>
 </p>
 <p align="center">
