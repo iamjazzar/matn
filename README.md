@@ -24,23 +24,23 @@
 </p>
 
 
-## Getting started
+## 1. Getting started
 
 ```bash
 pip install matn
 ```
-## Processors
-### Jummal | حِسَاب ٱلْجُمَّل
+## 2. Processors
+### 2.1. Jummal | حِسَاب ٱلْجُمَّل
 Or Abjad numerals, a decimal alphabetic numeral system/alphanumeric code, in which the 28 letters of the Arabic alphabet are assigned numerical values. They have been used in the Arabic-speaking world since before the eighth century when positional Arabic numerals were adopted.
 
-#### Methods
+#### 2.1.1. Methods
 There are different ways and values people use for jummal.
 1. The normal method which doesn't include the hamza count.
 1. The method that considers hamza as a seperate character.
 1. The tarkeeb method; Used to express the numbers from 2000 to 1,000,000, using the rule based on the letter "غ". The rule is fairly simple, any character that comes before "غ" its value will be multiplied with 1000 instead of accumalated to it.
 1. Normalized hamzas method, where we treat all hamza forms as a regular alef instead of the letter it appears on. Defaults to False.
 
-#### Usage
+#### 2.1.2. Usage
 ##### Python
 ```python
 >>> from matn import jummal
