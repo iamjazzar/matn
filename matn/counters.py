@@ -68,6 +68,9 @@ def jummal(
     """
     text = clean_text(text)
 
+    if not text:
+        return 0
+
     count = 0
     total = len(text)
 
@@ -90,5 +93,27 @@ def jummal(
             continue
 
         count += jummal_mappings.get(char, 0)
+
+    return count
+
+
+def word_count(text: str, split_badama: str = False) -> int:
+    """Counts given words in a sentence
+
+    Args:
+        text (str): _description_
+
+    Returns:
+        int: _description_
+    """
+    text = clean_text(text)
+    if not text:
+        return 0
+
+    words = text.split()
+    count = len(words)
+
+    if split_badama:
+        count += words.count("بعدما")
 
     return count

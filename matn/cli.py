@@ -1,13 +1,13 @@
 import argparse
 
-from matn.counters import jummal
+from matn.counters import jummal, word_count
 
 
 def get_args():
     parser = argparse.ArgumentParser(description=("Arabic text processor tool."))
 
     subparsers = parser.add_subparsers(
-        help="the processor to be applied on the given string"
+        dest="processor", help="the processor to be applied on the given string"
     )
 
     parser_jummal = subparsers.add_parser("jummal", help="Jummal counter")
@@ -33,6 +33,11 @@ def get_args():
         ),
     )
 
+    parser_wc = subparsers.add_parser("wc", help="Words counter")
+    parser_wc.add_argument(
+        "--split-badama", "-s", action="store_true", help="count hamza as an alef."
+    )
+
     parser.add_argument(
         "text",
         type=str,
@@ -44,14 +49,18 @@ def get_args():
 
 def main():
     args = get_args()
-    print(
-        jummal(
-            args.text,
-            use_hamza=args.use_hamza,
-            use_tarkeeb=args.use_tarkeeb,
-            normalize_hamza=args.normalize_hamza,
+
+    if args.processor == "jummal":
+        print(
+            jummal(
+                args.text,
+                use_hamza=args.use_hamza,
+                use_tarkeeb=args.use_tarkeeb,
+                normalize_hamza=args.normalize_hamza,
+            )
         )
-    )
+    elif args.processor == "wc":
+        print(word_count(args.text, split_badama=args.split_badama))
 
 
 if __name__ == "__main__":
