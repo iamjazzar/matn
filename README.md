@@ -6,7 +6,7 @@
     <img style="max-width: 100%;" alt="Tests" src="https://github.com/iamjazzar/matn/actions/workflows/ci.yml/badge.svg" />
   </a>
   <a href="https://badge.fury.io/py/matn">
-    <img style="max-width: 100%;" alt="Tests" src="https://badge.fury.io/py/matn.svg" />    
+    <img style="max-width: 100%;" alt="Tests" src="https://badge.fury.io/py/matn.svg" />
   </a>
 </h1>
 <p align="center">
@@ -29,7 +29,7 @@
 ```bash
 pip install matn
 ```
-## 2. Processors
+## 2. Counters
 ### 2.1. Jummal | حِسَاب ٱلْجُمَّل
 Or Abjad numerals, a decimal alphabetic numeral system/alphanumeric code, in which the 28 letters of the Arabic alphabet are assigned numerical values. They have been used in the Arabic-speaking world since before the eighth century when positional Arabic numerals were adopted.
 
@@ -43,7 +43,7 @@ There are different ways and values people use for jummal.
 #### 2.1.2. Usage
 ##### Python
 ```python
->>> from matn import jummal
+>>> from matn.counters import jummal
 
 >>> text = "شغل الدموع عن الديار بكاؤنا   لبكاء فاطمــة على أولادها"
 
@@ -82,4 +82,77 @@ matn jummal --normalize-hamza "شغل الدموع عن الديار بكاؤن�
 
 # All methods at once
 matn jummal -z -n -t  "شغل الدموع عن الديار بكاؤنا   لبكاء فاطمــة على أولادها"
+```
+
+### 2.2. Word Count
+Counts the number of characters in a given string.
+
+#### 2.2.1. Methods
+The method is very obvious. However, some researchers tend to split words into multiple parts. The only word we took interest in, so far, is بعدما. The `word_count` method will give you the option to split it into two words or count it as one.
+
+#### 2.2.2. Usage
+##### Python
+```python
+>>> from matn.counters import word_count
+
+>>> text = "فَمَنۢ بَدَّلَهُۥ بَعۡدَمَا سَمِعَهُۥ"
+
+>>> word_count(text)
+4
+
+# To split badama
+>>> word_count(text, split_badama=True)
+5  # بَعۡدَمَا was split into two words
+```
+
+##### CLI
+```shell
+matn wc "فَمَنۢ بَدَّلَهُۥ بَعۡدَمَا سَمِعَهُۥ"
+
+# To split badama
+matn wc --split-badama "فَمَنۢ بَدَّلَهُۥ بَعۡدَمَا سَمِعَهُۥ"
+```
+
+### 2.3. Char Count
+Counts the number of characters in a given string.
+
+#### 2.3.1. Methods
+- In some cases, we need to consinder spaces as seperate characters, in some cases we don't.
+- In some cases, we consider the hamza-madda (أٓ) character two characters. This character appears in the word الأٓخرة for example.
+
+#### 2.3.2. Usage
+##### Python
+```python
+>>> from matn.counters import char_count
+
+>>> text = "ٱلدَّارُ ٱلۡأٓخِرَةُ"
+
+>>> char_count(text)
+11
+
+# To Include spaces
+>>> char_count(text, include_spaces=True)
+12
+
+# To Include hamza-madda
+>>> char_count(text, hamza_madda=True)
+12
+
+# To Include hamza-madda and spaces
+>>> char_count(text, hamza_madda=True)
+13
+```
+
+##### CLI
+```shell
+matn cc "ٱلدَّارُ ٱلۡأٓخِرَةُ"
+
+# To Include hamza-madda
+matn wc --hamza-madda "فَمَنۢ بَدَّلَهُۥ بَعۡدَمَا سَمِعَهُۥ"
+
+# To Include spaces
+matn wc --include-spaces "فَمَنۢ بَدَّلَهُۥ بَعۡدَمَا سَمِعَهُۥ"
+
+# To Include hamza-madda and spaces
+matn wc --include-spaces --hamza-madda "فَمَنۢ بَدَّلَهُۥ بَعۡدَمَا سَمِعَهُۥ"
 ```

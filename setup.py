@@ -8,7 +8,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="matn",
-    version="0.1.1",
+    version="0.2.0",
     packages=["matn"],
     install_requires=[],
     entry_points={
