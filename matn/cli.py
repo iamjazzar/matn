@@ -1,6 +1,6 @@
 import argparse
 
-from matn.counters import jummal, word_count
+from matn.counters import char_count, jummal, word_count
 
 
 def get_args():
@@ -35,7 +35,24 @@ def get_args():
 
     parser_wc = subparsers.add_parser("wc", help="Words counter")
     parser_wc.add_argument(
-        "--split-badama", "-s", action="store_true", help="count hamza as an alef."
+        "--split-badama",
+        "-s",
+        action="store_true",
+        help="wether to count the word بعدما as two words بعد and ما.",
+    )
+
+    parser_cc = subparsers.add_parser("cc", help="Characters counter")
+    parser_cc.add_argument(
+        "--hamza-madda",
+        "-m",
+        action="store_true",
+        help="indicates if spaces should be included in the count.",
+    )
+    parser_cc.add_argument(
+        "--include-spaces",
+        "-s",
+        action="store_true",
+        help="consider the hamza madda (أٓ) two characters.",
     )
 
     parser.add_argument(
@@ -44,11 +61,11 @@ def get_args():
         help="the string to process",
     )
 
-    return parser.parse_args()
+    return parser, parser.parse_args()
 
 
 def main():
-    args = get_args()
+    parser, args = get_args()
 
     if args.processor == "jummal":
         print(
@@ -61,6 +78,16 @@ def main():
         )
     elif args.processor == "wc":
         print(word_count(args.text, split_badama=args.split_badama))
+    elif args.processor == "cc":
+        print(
+            char_count(
+                args.text,
+                include_spaces=args.include_spaces,
+                hamza_madda=args.hamza_madda,
+            )
+        )
+    else:
+        parser.error("Prcessor action not recognized")
 
 
 if __name__ == "__main__":

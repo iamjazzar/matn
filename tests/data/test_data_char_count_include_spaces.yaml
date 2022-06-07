@@ -1,0 +1,44 @@
+- text:
+  expected: 0
+
+- text: إِسۡمَٰعِيلَ
+  expected: 6
+
+- text: مَدَّ
+  expected: 2
+
+- text: أَمَّن
+  expected: 3
+
+- text: مُّؤۡمِنٌ
+  expected: 4
+
+- text: يَئِسَ
+  expected: 3
+
+- text: ءَامَنَ
+  expected: 4
+
+- text: شَيۡءٖ
+  expected: 3
+
+- text: دِفۡءٞ
+  expected: 3
+
+- text: ٱسۡتُهۡزِئَ
+  expected: 6
+
+- text: ٱلۡأَيَّامُ
+  expected: 6
+
+- text: ٱلۡأٓخِرَةُ
+  expected: 6
+
+- text: أَحۡصَىٰهُمۡ
+  expected: 6
+
+- text: أَحۡصَىٰهَاۚ
+  expected: 6
+
+- text: مِن دُونِي وَهُمۡ
+  expected: 11
