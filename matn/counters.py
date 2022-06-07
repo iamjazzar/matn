@@ -68,6 +68,9 @@ def jummal(
     """
     text = clean_text(text)
 
+    if not text:
+        return 0
+
     count = 0
     total = len(text)
 
@@ -90,5 +93,59 @@ def jummal(
             continue
 
         count += jummal_mappings.get(char, 0)
+
+    return count
+
+
+def word_count(text: str, split_badama: str = False) -> int:
+    """Counts the number of words in a given string.
+
+    Args:
+        text (str): The text to count its words.
+        split_badama (str, optional): Wether to count the
+            word بعدما as two words بعد and ما. Defaults to False.
+
+    Returns:
+        int: The count of words in a given string.
+    """
+    text = clean_text(text)
+    if not text:
+        return 0
+
+    words = text.split()
+    count = len(words)
+
+    if split_badama:
+        count += text.count("بعدما")
+
+    return count
+
+
+def char_count(
+    text: str, include_spaces: bool = False, hamza_madda: bool = False
+) -> int:
+    """Counts the number of characters in a given string.
+
+    Args:
+        text (str): The text to count its characters.
+        include_spaces (bool, optional): Indicates whether spaces should be
+            included in the count or not. Defaults to False.
+        hamza_madda (bool, optional): Whether to consider the hamza madda (أٓ)
+            two characters or not. Defaults to False.
+
+    Returns:
+        int: The number of characters found in the given string.
+    """
+    if not text:
+        return 0
+
+    clean = clean_text(text)
+    count = len(clean)
+
+    if hamza_madda:
+        count += text.count("أٓ")
+
+    if not include_spaces:
+        count -= clean.count(" ")
 
     return count
