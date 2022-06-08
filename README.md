@@ -59,11 +59,11 @@ There are different ways and values people use for jummal.
 2_268  # شغ's value is 1000 + 300, hamza value is 1, and ؤ value is 1
 
 # To use tarkeeb
-jummal(text, use_tarkeeb=True)
+>>> jummal(text, use_tarkeeb=True)
 300_973  # شغ's value is 300 * 1000 and hamza value is 0
 
 # To use hamza and tarkeeb
-jummal(text, use_hamza=True, use_tarkeeb=True)
+>>> jummal(text, use_hamza=True, use_tarkeeb=True)
 300_974  # شغ's value is 300 * 1000 and hamza value is 1
 ```
 
