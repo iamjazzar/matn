@@ -10,7 +10,7 @@ long_description = re.sub(re.compile("<picture?>"), "", readme_text)
 
 setup(
     name="matn",
-    version="0.2.0",
+    version="0.2.1",
     packages=["matn"],
     install_requires=[],
     entry_points={
