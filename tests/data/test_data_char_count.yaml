@@ -1,0 +1,74 @@
+- text:
+  expected: 0
+  expected_hamza_madda: 0
+  expected_include_spaces: 0
+
+- text: إِسۡمَٰعِيلَ
+  expected: 6
+  expected_hamza_madda: 6
+  expected_include_spaces: 6
+
+- text: مَدَّ
+  expected: 2
+  expected_hamza_madda: 2
+  expected_include_spaces: 2
+
+- text: أَمَّن
+  expected: 3
+  expected_hamza_madda: 3
+  expected_include_spaces: 3
+
+- text: مُّؤۡمِنٌ
+  expected: 4
+  expected_hamza_madda: 4
+  expected_include_spaces: 4
+
+- text: يَئِسَ
+  expected: 3
+  expected_hamza_madda: 3
+  expected_include_spaces: 3
+
+- text: ءَامَنَ
+  expected: 4
+  expected_hamza_madda: 4
+  expected_include_spaces: 4
+
+- text: شَيۡءٖ
+  expected: 3
+  expected_hamza_madda: 3
+  expected_include_spaces: 3
+
+- text: دِفۡءٞ
+  expected: 3
+  expected_hamza_madda: 3
+  expected_include_spaces: 3
+
+- text: ٱسۡتُهۡزِئَ
+  expected: 6
+  expected_hamza_madda: 6
+  expected_include_spaces: 6
+
+- text: ٱلۡأَيَّامُ
+  expected: 6
+  expected_hamza_madda: 6
+  expected_include_spaces: 6
+
+- text: ٱلۡأٓخِرَةُ
+  expected: 6
+  expected_hamza_madda: 7
+  expected_include_spaces: 6
+
+- text: أَحۡصَىٰهُمۡ
+  expected: 6
+  expected_hamza_madda: 6
+  expected_include_spaces: 6
+
+- text: أَحۡصَىٰهَاۚ
+  expected: 6
+  expected_hamza_madda: 6
+  expected_include_spaces: 6
+
+- text: مِن دُونِي وَهُمۡ
+  expected: 9
+  expected_hamza_madda: 9
+  expected_include_spaces: 11
