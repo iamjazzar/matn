@@ -1,10 +1,12 @@
 #!/usr/bin/env python
+import re
 from pathlib import Path
 
 from setuptools import setup
 
 this_directory = Path(__file__).parent
-long_description = (this_directory / "README.md").read_text()
+readme_text = (this_directory / "README.md").read_text()
+long_description = re.sub(re.compile("<picture?>"), "", readme_text)
 
 setup(
     name="matn",

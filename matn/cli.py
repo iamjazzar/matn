@@ -3,7 +3,7 @@ import argparse
 from matn.counters import char_count, jummal, word_count
 
 
-def get_args():
+def get_args():  # pragma: no cover
     parser = argparse.ArgumentParser(description=("Arabic text processor tool."))
 
     subparsers = parser.add_subparsers(
@@ -90,5 +90,5 @@ def main():
         parser.error("Prcessor action not recognized")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     exit(main())
