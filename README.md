@@ -8,6 +8,9 @@
   <a href="https://badge.fury.io/py/matn">
     <img style="max-width: 100%;" alt="Tests" src="https://badge.fury.io/py/matn.svg" />
   </a>
+  <a href="https://github.com/iamjazzar/matn/actions/workflows/codeql-analysis.yml">
+    <img src="https://github.com/iamjazzar/matn/actions/workflows/codeql-analysis.yml/badge.svg" />
+  </a>
 </h1>
 <p align="center">
   <a href="https://www.ahmedjazzar.com/">
