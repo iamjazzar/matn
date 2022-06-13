@@ -6,11 +6,13 @@ from setuptools import setup
 
 this_directory = Path(__file__).parent
 readme_text = (this_directory / "README.md").read_text()
-long_description = re.sub(re.compile("<picture?>"), "", readme_text)
+long_description = re.sub(
+    r"(\s*<picture>\s*|\s*</picture>\s*|\s*<source .* />\s*)", "", readme_text
+)
 
 setup(
     name="matn",
-    version="0.2.1",
+    version="0.2.2",
     packages=["matn"],
     install_requires=[],
     entry_points={
